@@ -1,26 +1,26 @@
-const path = require('path');//CommonJs
+const path = require('path'); //CommonJS
 module.exports = {
     mode: 'development',
-    entry: './src/main.js',
-    output:{
-         path: path.resolve(__dirname, 'public', 'assets', 'js'),
-         filename: 'bundle.js'
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'public', 'assets', 'js'),
+        filename: 'bundle.js'
     },
     module: {
-        rules:[{
+        rules: [{
             exclude: /node_modules/,
             test: /\.js$/,
-            use:{
+            use: {
                 loader: 'babel-loader',
-                options:{
-                    presets:['@babel/env']
+                options: {
+                    presets: ['@babel/env']
                 }
             }
-            },
-            {
-                test:/\.css$/,
-                use: ['style-loader', 'css-loader']
-            }]
+        },
+    {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+    }]
     },
     devtool: 'source-map'
 };
